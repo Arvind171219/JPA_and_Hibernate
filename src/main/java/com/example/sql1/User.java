@@ -1,5 +1,8 @@
 package com.example.sql1;
 
+import org.hibernate.annotations.Comment;
+
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
@@ -8,10 +11,18 @@ import javax.persistence.Table;
 @Table(name="user_info") // ye simple table ka name diy hain
 public class User {
     @Id // ye btayega ki primary key kown banega
+    @Column(unique = true)
     private int id; //it is the primary key
+
+
+    @Column(name = "Email")
+    private String email;
     private String name;
     private String age;
+    private String sex;
     private int mobilenumber;
+    @Column(name="country_name",unique = true) // eska kya name de
+    private String country;
 
     public User(){
 
